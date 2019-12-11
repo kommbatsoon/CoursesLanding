@@ -1,0 +1,28 @@
+@import "settings/normalize";
+@import "settings/default";
+@import "settings/libs";
+@import "settings/fonts";
+@import "settings/variables";
+@import "settings/mixins";
+@import "responsive";
+
+body {
+
+  //.primary-button {
+  //  &:hover{
+  //  }
+  //  a{
+  //    &:hover, &:active{
+  //    }
+  //  }
+  //}
+  //.secondary-button {
+  //  @extend .primary-button;
+  //  &:hover{
+  //  }
+  //}
+}
+
+.hidden{
+  display: none;
+}

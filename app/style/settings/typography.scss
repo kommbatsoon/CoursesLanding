@@ -1,0 +1,40 @@
+@import 'mixins';
+@import 'variables';
+
+html {
+  font-size: $font-size-basic;
+}
+
+body {
+  @include normalizeFont();
+}
+
+div, span {
+  font-family: Roboto, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include normalizeFont();
+  color: $color-black-primary;
+  margin: 0 0;
+  padding: 0;
+}
+
+p {
+  @include normalizeFont();
+  color: $color-black-primary;
+  margin: 0;
+}
+
+button, input, optgroup, select, textarea {
+  @include normalizeFont();
+
+  &::-webkit-input-placeholder {
+    @include normalizeFont();
+  }
+}

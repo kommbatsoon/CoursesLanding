@@ -1,0 +1,15 @@
+@import "variables";
+
+@mixin test($from-color, $to-color) {
+  background-image: linear-gradient(to right, $from-color, $to-color);
+}
+
+@mixin normalizeFont() {
+  font-size: $font-size-basic;
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+}
