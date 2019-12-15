@@ -1,5 +1,6 @@
 @import "settings/normalize";
 @import "settings/default";
+@import "settings/typography";
 @import "settings/libs";
 @import "settings/fonts";
 @import "settings/variables";
@@ -7,22 +8,411 @@
 @import "responsive";
 
 body {
-
-  //.primary-button {
-  //  &:hover{
-  //  }
-  //  a{
-  //    &:hover, &:active{
-  //    }
-  //  }
-  //}
-  //.secondary-button {
-  //  @extend .primary-button;
-  //  &:hover{
-  //  }
-  //}
 }
 
-.hidden{
+section {
+  margin-top: 122px;
+  position: relative;
+}
+
+h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+h1 {
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.hidden {
   display: none;
+}
+
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+.flex-wrapper {
+  display: flex;
+  justify-content: space-between
+}
+
+.logo {
+  font-family: $font-extra-bold;
+  font-size: 32px;
+  letter-spacing: -0.89px;
+  color: $color-black-primary;
+}
+
+.red-text {
+  color: $color-red;
+}
+.blue-text {
+  color: $color-blue;
+}
+
+.primary-button, a.primary-button {
+  min-width: 155px;
+  max-width: max-content;
+  height: 48px;
+
+  padding: 0 30px;
+
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.05),
+  0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+
+  background-blend-mode: overlay, normal;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)),
+  linear-gradient(to bottom, $color-blue, $color-blue);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: $font-semi-bold;
+  font-size: 18px;
+  line-height: 0.72;
+  text-decoration: none;
+  color: $color-white;
+
+  cursor: pointer;
+
+  &:hover {
+  }
+
+  &:active {
+  }
+}
+
+.secondary-button, a.secondary-button {
+  min-width: 150px;
+  max-width: max-content;
+  height: 48px;
+
+  border: solid 1px #007bff;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.05),
+  0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+
+  background-blend-mode: overlay;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: $font-semi-bold;
+  font-size: 18px;
+  line-height: 0.72;
+  color: #007dff;
+
+  cursor: pointer;
+}
+
+
+
+header {
+  margin-top: 45px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .menu-item {
+      font-family: $font-semi-bold;
+      font-size: 18px;
+      line-height: 1.39;
+      cursor: pointer;
+
+      &:not(last-child) {
+        margin-right: 24px;
+      }
+
+      a {
+        color: #2b292d;
+      }
+    }
+  }
+}
+
+section#top-section {
+
+  .description {
+    margin-top: 12px;
+    font-size: 24px;
+    color: $color-description;
+  }
+
+  .text {
+    margin-top: 42px;
+    font-family: $font-medium;
+    font-size: 18px;
+    line-height: 1.39;
+    color: $color-description;
+  }
+
+  a {
+    margin-top: 14px;
+  }
+
+  img {
+    width: 560px;
+    height: 312px;
+    margin-right: -20px;
+  }
+
+  .info {
+    margin-top: 82px;
+
+    display: flex;
+    justify-content: space-between;
+
+    .info-box {
+      width: 550px;
+      height: 244px;
+      border-radius: 6px;
+      box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.08);
+      background-color: $color-white;
+
+      padding: 36px 32px;
+      box-sizing: border-box;
+
+      .title {
+        font-family: $font-semi-bold;
+        font-size: 28px;
+        line-height: 1.14;
+        color: $color-title-secondary;
+      }
+
+      .description {
+        margin-top: 12px;
+        font-size: 22px;
+        line-height: 1.45;
+        color: $color-title-secondary;
+      }
+    }
+  }
+
+}
+
+section#salary-section {
+  h2 {
+    top: 42px;
+  }
+
+  .left-side {
+    margin-top: 42px;
+
+    .description {
+      color: $color-description;
+      line-height: 1.45;
+    }
+  }
+
+  img {
+    width: 483px;
+    height: 305px;
+  }
+}
+
+section#coach-section {
+  h2 {
+    top: 13px;
+  }
+
+  .left-side {
+    margin-top: 13px;
+    width: 611px;
+
+    .description {
+      margin-top: 12px;
+      color: $color-title-secondary;
+      line-height: 1.45;
+    }
+
+    .achievements {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .achievement {
+        padding: 11px 14px;
+        box-sizing: border-box;
+        text-align: center;
+        min-width: 239px;
+        max-width: max-content;
+        height: 40px;
+        border-radius: 11px;
+        background-color: $color-yellow;
+
+        font-family: $font-medium;
+        font-size: 15px;
+        letter-spacing: -0.24px;
+        color: $color-title;
+
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .avatar {
+    width: 316px;
+    height: 316px;
+    border-radius: 121px;
+    border: solid 6px $color-blue;
+  }
+
+  .projects {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .project {
+      width: 550px;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 289px;
+        border-radius: 22px;
+        background-color: #d8d8d8;
+      }
+
+      .name {
+        margin-top: 26px;
+        font-family: $font-semi-bold;
+        font-size: 24px;
+        line-height: 1.08;
+        color: $color-title;
+      }
+
+      .description {
+        margin-top: 6px;
+
+        font-size: 20px;
+        line-height: 1.5;
+        color: $color-description;
+      }
+
+      &:nth-child(even) {
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+section#enroll-section {
+  .form-wrapper {
+    margin-top: 62px;
+
+    form {
+      margin-top: 13px;
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 396px;
+        height: 48px;
+        border-radius: 6px;
+        border: solid 1px rgba(43, 41, 45, 0.2);
+        background-color: $color-white;
+        padding: 0 15px;
+      }
+
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  img {
+    width: 410px;
+    height: 315px;
+  }
+}
+
+section#program-section {
+  .description {
+    margin-top: 12px;
+    width: 603px;
+    font-size: 24px;
+    color: $color-description;
+  }
+
+  .text {
+    margin-top: 42px;
+    font-family: $font-medium;
+    font-size: 18px;
+    line-height: 1.39;
+    color: $color-description;
+  }
+
+  a {
+    margin-top: 14px;
+  }
+
+  img {
+    width: 431px;
+    height: 309px;
+  }
+}
+
+section#education-section {
+  .education-points {
+    margin-top: 37px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    .point {
+      margin-top: 55px;
+      width: 555px;
+
+      &:nth-child(even) {
+        margin-left: 30px;
+      }
+
+      .title {
+        font-family: $font-semi-bold;
+        color: $color-title-secondary;
+      }
+
+      .description {
+        margin-top: 8px;
+
+        font-size: 18px;
+        line-height: 1.33;
+        color: $color-title-secondary;
+      }
+    }
+  }
+}
+
+footer {
+  margin: 152px 0 40px 0;
+  display: flex;
+  justify-content: space-between;
+
+  .description {
+    margin-top: 3px;
+    font-size: 18px;
+    line-height: 1.39;
+    color: rgba(43, 41, 45, 0.6);
+  }
 }

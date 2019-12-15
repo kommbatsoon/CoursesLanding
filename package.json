@@ -1,10 +1,13 @@
 {
   "name": "courses",
   "version": "1.0.0",
-  "description": "Template",
-  "main": "index.html",
+  "description": "Landing page for programming courses",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kommbatsoon/CoursesLanding.git"
   },
   "author": "Pavel Unhur",
   "license": "ISC",

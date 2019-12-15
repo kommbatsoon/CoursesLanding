@@ -101,26 +101,13 @@
         });
     }
 
-    printReviews(REVIEWS_DATA, REVIEWS_LIST_LEFT_COLUMN, REVIEWS_LIST_RIGHT_COLUMN);
-
-    //Listener of 'Read more' button Click
-    SHOW_MORE_BUTTON.addEventListener('click', function () {
-        VISIBLE_REVIEWS_COUNT += REVIEWS_INCREMENT;
-        REVIEWS_LIST_LEFT_COLUMN.innerHTML = '';
-        REVIEWS_LIST_RIGHT_COLUMN.innerHTML = '';
-        printReviews(REVIEWS_DATA, REVIEWS_LIST_LEFT_COLUMN, REVIEWS_LIST_RIGHT_COLUMN);
-
-        //Delete button from DOM
-        if (VISIBLE_REVIEWS_COUNT >= reviewsAllCount) {
-            SHOW_MORE_BUTTON.className += ' hide'
-        }
-    });
-
+    //printReviews(REVIEWS_DATA, REVIEWS_LIST_LEFT_COLUMN, REVIEWS_LIST_RIGHT_COLUMN);
 
     /* Working with SCROLLING  */
+    const SCROLLING_TIME = 1500;
 
     function getElementY(query) {
-        return window.pageYOffset + document.querySelector(query).getBoundingClientRect().top
+        return window.pageYOffset + document.querySelector(query).getBoundingClientRect().top - 100
     }
     function doScrolling(element, duration) {
         let startingY = window.pageYOffset;
@@ -146,27 +133,23 @@
         })
     }
 
-    const SCROLLING_TIME = 1500;
+    const MENU_LINKS = [
+        {node: document.getElementById('salary-link'), navigateToID: '#salary-section'},
+        {node: document.getElementById('coach-link'), navigateToID: '#coach-section'},
+        {node: document.getElementById('faq-link'), navigateToID: '#faq-section'},
+        {node: document.getElementById('process-link'), navigateToID: '#education-section'},
+        {node: document.getElementById('enroll-link'), navigateToID: '#enroll-section'},
+    ];
 
-    const achievementsLink = document.getElementById('achievements-link');
-    const showLink         = document.getElementById('show-link');
-    const customersLink    = document.getElementById('customers-link');
-    const reviewsLink      = document.getElementById('reviews-link');
-
-    function AddScrollEventToLink (nodeLink, navigateTo) {
-        nodeLink.addEventListener('click', function () {
-            doScrolling(navigateTo, SCROLLING_TIME)
+    MENU_LINKS.forEach(link => {
+        link.node.addEventListener('click', function () {
+            doScrolling(link.navigateToID, SCROLLING_TIME)
         });
-    }
-
-    AddScrollEventToLink(achievementsLink, '#achievements-section');
-    AddScrollEventToLink(showLink, '#show-section');
-    AddScrollEventToLink(customersLink, '#customers-section');
-    AddScrollEventToLink(reviewsLink, '#reviews-section');
+    });
 
     /* CallBack Forms sending  */
 
-    $("#join-form").submit(function(e) {
+    $("#enroll-form").submit(function(e) {
         let ths = $(this);
         e.preventDefault;
         $.ajax({
@@ -179,17 +162,16 @@
         return false;
     });
 
-
     /* Sliders init */
 
-    let SLIDES_TO_SHOW = 5;
-    if(windowWidth < 768) SLIDES_TO_SHOW = 2;
-
-    $('.slider-1').slick({
-        infinite: true,
-        arrows:true,
-        slidesToShow: SLIDES_TO_SHOW,
-        autoplay:true,
-        autoplaySpeed:2000
-    });
+    // let SLIDES_TO_SHOW = 5;
+    // if(windowWidth < 768) SLIDES_TO_SHOW = 2;
+    //
+    // $('.slider-1').slick({
+    //     infinite: true,
+    //     arrows:true,
+    //     slidesToShow: SLIDES_TO_SHOW,
+    //     autoplay:true,
+    //     autoplaySpeed:2000
+    // });
 })();
