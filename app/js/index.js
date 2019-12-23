@@ -1,177 +1,335 @@
+const WINDOW_WIDTH = window.innerWidth;
+const isMobile = WINDOW_WIDTH <= 768;
+
+const CONFIG = {
+	scrollingTime: 1500,
+	sliderSettings: {
+		slidesToShow: isMobile ? 1 : 2,
+		autoPlay: false,
+		autoPlaySpeed: 2000,
+	},
+	placesLeft: 7,
+	educationPoints: [
+		{
+			title: 'Длительность 6 месяцев',
+			description: '3 занятия в неделю от 30 минут до 1.30 часа в зависимости от темы. И понимания человеком материала.'
+		},
+		{
+			title: 'Дипломный проект',
+			description: 'После обучения дипломный проект, который уже включен в курс и платить за него не нужно.'
+		},
+		{
+			title: 'Разбор собеседований',
+			description: 'Кратко расписать что и как, я не шарю, помогите мне, пожалуйста, я не знаю, что тут писать'
+		},
+		{
+			title: 'Стажировка',
+			description: 'Кратко расписать что и как, я не шарю, помогите мне, пожалуйста, я не знаю, что тут писать'
+		}
+	],
+	projects: [
+		{
+			id: 'project1',
+			image: 'project1.png',
+			name: 'Проект 1',
+			description: 'Описане 1го проекта',
+			preview: {
+				title1: 'Заголовок 1',
+				description1: 'Утром в ржаном закуте, Где златятся рогожи в ряд, Семерых ощенила сука, Рыжих семерых щенят. \n' +
+					'До вечера она их ласкала, Причесывая языком, И струился снежок подталый.Под теплым ее животом.\n' +
+					'А вечером, когда куры. Обсиживают шесток, Вышел хозяин хмурый, Семерых всех поклал в мешок. \n' +
+					'По сугробам она бежала, Поспевая за ним бежать…И так долго, долго дрожала. Воды незамерзшей гладь.',
+				image1: 'project-preview1-1.png',
+				title2: 'Заголовок 2',
+				description2: 'Утром в ржаном закуте, Где златятся рогожи в ряд, Семерых ощенила сука, Рыжих семерых щенят. \n' +
+					'До вечера она их ласкала, Причесывая языком, И струился снежок подталый.Под теплым ее животом.\n' +
+					'А вечером, когда куры. Обсиживают шесток, Вышел хозяин хмурый, Семерых всех поклал в мешок. \n' +
+					'По сугробам она бежала, Поспевая за ним бежать…И так долго, долго дрожала. Воды незамерзшей гладь.',
+				image2: 'project-preview1-1.png',
+			}
+		},
+		{
+			id: 'project2',
+			image: 'project1.png',
+			name: 'Проект 2',
+			description: 'Описане 2го проекта',
+			preview: {
+				title1: 'Заголовок 1',
+				description1: 'Описание 1',
+				image1: 'project1.png',
+				title2: 'Заголовок 2',
+				description2: 'Описание 2',
+				image2: 'project1.png',
+			}
+		},
+		{
+			id: 'project3',
+			image: 'project1.png',
+			name: 'Проект 3',
+			description: 'Описане 3го проекта',
+			preview: {
+				title1: 'Заголовок 1',
+				description1: 'Описание 1',
+				image1: 'project1.png',
+				title2: 'Заголовок 2',
+				description2: 'Описание 2',
+				image2: 'project1.png',
+			}
+		},
+		{
+			id: 'project4',
+			image: 'project1.png',
+			name: 'Проект 4',
+			description: 'Описане 4го проекта',
+			preview: {
+				title1: 'Заголовок 1',
+				description1: 'Описание 1',
+				image1: 'project1.png',
+				title2: 'Заголовок 2',
+				description2: 'Описание 2',
+				image2: 'project1.png',
+			}
+		},
+	],
+	reviews: [
+		{
+			avatar: 'avatar.png',
+			authorName: 'Robbie Williams',
+			date: '12 ноября 2019',
+			text: 'Всем, кто заинтересован и старателен и кого не устраивает текущая зарплата, а кодить можно научить любого, если грамотно подается материал и человек прилагает усилия.'
+		},
+		{
+			avatar: 'avatar.png',
+			authorName: 'Гена Williams',
+			date: '12 ноября 2019',
+			text: 'Всем, кто заинтересован и старателен и кого не устраивает текущая зарплата, а кодить можно научить любого, если грамотно подается материал и человек прилагает усилия.'
+		},
+		{
+			avatar: 'avatar.png',
+			authorName: 'Гена Турбо',
+			date: '12 ноября 2019',
+			text: 'Всем, кто заинтересован и старателен и кого не устраивает текущая зарплата, а кодить можно научить любого, если грамотно подается материал и человек прилагает усилия.'
+		}
+	]
+};
+
 (function () {
-    window.scrollTo(0, 0);
+	window.scrollTo(0, 0);
 
-    /* Working with REViEWS data */
+	/**
+	 *
+	 * Working with EDUCATION PROCESS
+	 *
+	 * */
 
-    //Reviews list (id, photo, fullName, text)
-    let REVIEWS_DATA = [
-        {
-            id: 1,
-            photo: 'photo1.PNG',
-            fullName: 'Юлия Сенник',
-            text: ' Спасибо большое Евгению за невероятное лазерное шоу! Я догадывалась, что в живую выступление будет намного эффектнее, чем на видео, но не думала, что настолько! Это правда очень круто! Гости остались под впечатлением (их отзывы - "это просто вау", "круто", "никогда такого не видел", "очень необычно" и т.д.). Даже администратор коттеджа нам сказал, что сколько было свадеб у них, он ни разу такого не видел! Поэтому те, кто решается, приглашать ли Евгения на свой праздник, с уверенностью отвечаю - конечно приглашать! Это будет изюминкой любого мероприятия! Спасибо еще раз!!',
-            commentLink:'https://vk.com/fil_younger?w=wall-107427771_135%2Fall'
-        },
-        {
-            id: 2,
-            photo: 'photo8.PNG',
-            fullName: 'Олег Юша',
-            text: 'Если вы решили заказать на свое торжество Иллюзионно-лазерное шоу от Евгения Филона, то вы точно не прогадаете! Яркие эмоции, прекрасное впечатление. Это то, что нужно вам, это то, что я вам рекомендую. Берите и заказывайте, праздник будет мега крутым!',
-            commentLink:'https://vk.com/fil_younger?w=wall-107427771_135%2Fall',
-            videoLink:'https://www.youtube.com/watch?v=o0cvjoAiwk8&feature=youtu.be'
-        },
-        {
-            id: 3,
-            photo: 'photo4.PNG',
-            fullName: 'Игорь Воеводин',
-            text: 'Хотим выразить огромную благодарность Евгению за подареный нам вечер!!! Гости в восторге, до сих пор отходим от впечатления !!! Все было на высоте !! Вы нас очень удивили и порадовали !!)',
-            commentLink:'https://vk.com/fil_younger?w=wall-107427771_130%2Fall'
-        },
-        {
-            id: 4,
-            photo: 'photo2.PNG',
-            fullName: 'Диана Третьякевич',
-            text: 'Хотим сказать огромное спасибо Жене за проделанную работу на нашем торжестве! Это было невероятное, завораживающее, незабываемое шоу!!! Мы и наши гости под большим впечатлением!!! Лазерное шоу стало "вишенкой на торте"! Захватывающе!!!\n' +
-            'Все гости до сих пор нам говорят о своих впечатлениях! И мы их понимаем! Восторг!' +
-            'Женечка, ты крутой! Мы желаем тебе таких же ярких выступлений, удивлённой и восторженной публики, новых идей, успешных исполнений и море-море-море энергии!! То, что ты делаешь - невероятно!\n' +
-            'Спасибо, что разделил с нами наш праздник!!! 👏👏👏👍🔮🎆🎇🎊🃏🌟',
-            commentLink:'https://vk.com/fil_younger?w=wall-107427771_127%2Fall'
-        },
+	function printEducationPoints(points) {
+		const node = document.getElementById('education-points');
 
-        {
-            id: 5,
-            photo: 'photo5.PNG',
-            fullName: 'Елена Кондратович',
-            text: 'Хотелось бы выразить большую благодарность Жене за его прекрасное выступление на нашем небольшом мероприятии) Благодаря ему, у нас получился отличный праздник, с массой улыбок и положительных эмоций. Наши гости выразили свой восторг и восхищение происходящим. Лазерное шоу – это просто что-то невероятное. Описать словами невозможно, это просто нужно увидеть)  С удовольствием приглашайте его на свои мероприятия! Женя, огромное тебе спасибо! Все были в полном восторге!',
-            commentLink:'https://vk.com/fil_younger?w=wall-107427771_117%2Fall'
-        },
-        {
-            id: 6,
-            photo: 'photo6.PNG',
-            fullName: 'Юлия Матюк',
-            text: 'Хочу оставить отзыв о шоу. Все было фантастически. То, что ты делаешь - невероятно! Очень ярко и феерично.. Остались только позитивные эмоции. Спасибо вам за яркие воспоминания которые у меня остались.',
-            commentLink:'https://vk.com/fil_younger?w=wall-107427771_44%2Fall'
-        },
-        {
-            id: 7,
-            photo: 'photo7.PNG',
-            fullName: 'Милена Минич',
-            text: 'Мы безумно рады, что этот талантливый и очень харизматичный молодой человек выступал на нашей свадьбе !! Все было на высшем уровне!! Это было настоящее чудо!!! Еще долго будем вспоминать ваши выступления! Огромное спасибо)',
-            commentLink:'https://vk.com/fil_younger?w=wall-107427771_61%2Fall'
-        },
-        {
-            id: 8,
-            photo: 'photo3.PNG',
-            fullName: 'Юлька Садовская',
-            text: 'Большое спасибо Евгению за проведенные шоу на нашей свадьбе! Все было супер! Фокусы удивили всех!! Лазерное шоу было 🔥🔥🔥 и сам Евгений был на высоте! Мы желаем тебе таких же ярких выступлений, удивлённой и восторженной публики, новых идей, успешных исполнений и море-море-море энергии!! Заказывайте - не пожалеете! Это будет изюминкой любого мероприятия! Спасибо еще раз!!',
-            commentLink:'https://vk.com/fil_younger?w=wall-107427771_126%2Fall'
-        },
-    ];
+		points.forEach(function (project) {
+			node.innerHTML += `
+				<div class="point">
+					<p class="title">${project.title}</p>
+					<p class="description">${project.description}</p>
+				</div>
+				`;
+		});
+	}
 
-    let reviewsAllCount = REVIEWS_DATA.length;
+	/**
+	 *
+	 * Working with PROJECTS
+	 *
+	 * */
 
-    let VISIBLE_REVIEWS_COUNT = 4; //Number of Reviews On Page (default)
-    let REVIEWS_INCREMENT     = 4; //Number of Reviews that will be Showed after 'Read more' click
+	const MAIN_CONTAINER     = document.getElementById('main-container');
+	const PROJECT_PAGE       = document.getElementById('project-page');
+	let PREVIEW_CLOSE_BUTTON = document.getElementById('close-button');
 
-    //Changing comments count for Mobile Version
-    let windowWidth = window.innerWidth;
-    if(windowWidth < 768){
-        VISIBLE_REVIEWS_COUNT = 2;
-        REVIEWS_INCREMENT = 2;
-    }
+	function printProjects(projects) {
+		const node = document.getElementById('projects');
 
-    const REVIEWS_LIST_LEFT_COLUMN  = document.getElementById('review-list-left-column');
-    const REVIEWS_LIST_RIGHT_COLUMN = document.getElementById('review-list-right-column');
-    const SHOW_MORE_BUTTON          = document.getElementById('show-more-button');
+		projects.forEach(function (project, key) {
+			const imagePath = './assets/images/projects/' + project.image;
 
-    //Printing reviews in 2 columns (params: reviewsList, node1, node2).
-    function printReviews(reviews, leftColumnNode, rightColumnNode) {
-        reviews.forEach(function (review, key) {
-            const isEven = key % 2 === 0;
-            const node = isEven ? leftColumnNode : rightColumnNode;
-            if (key < VISIBLE_REVIEWS_COUNT) {
-                node.innerHTML += `<li class="review-item">
-                                        <a class="review-header" href="${review.commentLink}" target="_blank">
-                                            <img src="./img/customerPhotos/` + review.photo + `"/>
-                                            <span class="full-name">${review.fullName}</span>
-                                        </a>
-                                        <div class="review-body">${review.text}<br><a class="videoLink" href="${review.videoLink || ''}" target="_blank">${review.videoLink ? 'Смотреть отзыв на YouTube' : ''}</a></div> </div>
-                                    </li>`;
-            }
-        });
-    }
+			node.innerHTML += `
+					<div class="project">
+						<img src="${imagePath}"/>
+						<p class="name">${project.name}</p>
+						<p class="description">${project.description}</p>
+					</div>
+				`;
 
-    //printReviews(REVIEWS_DATA, REVIEWS_LIST_LEFT_COLUMN, REVIEWS_LIST_RIGHT_COLUMN);
+			let projectNodes = document.getElementsByClassName('project');
 
-    /* Working with SCROLLING  */
-    const SCROLLING_TIME = 1500;
+			for (let index = 0; index < projectNodes.length; index++) {
+				projectNodes[index].addEventListener('click', function () {
+					setActiveProject(index)
+				});
+			}
+		});
+	}
+	function printProjectPreview(project) {
+		const imagePath = './assets/images/projects/';
 
-    function getElementY(query) {
-        return window.pageYOffset + document.querySelector(query).getBoundingClientRect().top - 100
-    }
-    function doScrolling(element, duration) {
-        let startingY = window.pageYOffset;
-        let elementY = getElementY(element);
-        let targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY;
-        let diff = targetY - startingY + 5;
-        let easing = function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 };
-        let start;
+		PROJECT_PAGE.innerHTML = `
+		<div class="project-page-container">
+			<h1>${project.name}</h1>
+			<h2>${project.name}</h2>
+	
+			<div class="scroll-container">
+				<section>
+					<img src="${imagePath + project.image1}" alt="Preview image" class="right-margin">
+					<div class="info-block">
+						<p class="section-title">${project.title1}</p>
+						<p class="description">${project.description1}</p>
+					</div>
+				</section>
+				<section>
+					<div class="info-block">
+						<p class="section-title">${project.title2}</p>
+						<p class="description">${project.description2}</p>
+					</div>
+					<img src="${imagePath + project.image2}" alt="Preview image" class="left-margin">
+				</section>
+			</div>
+	
+			<div class="button-container">
+				<button class="close-button" id="close-button">
+					<img src="assets/images/icons/close-icon.png">
+				</button>
+			</div>
+		</div>
+	`;
 
-        if (!diff) return;
+		PREVIEW_CLOSE_BUTTON = document.getElementById('close-button');
+	}
+	function setActiveProject(index) {
+		MAIN_CONTAINER.classList.toggle('hidden');
+		PROJECT_PAGE.classList.toggle('visible');
 
-        window.requestAnimationFrame(function step(timestamp) {
-            if (!start) start = timestamp;
-            let time = timestamp - start;
-            let percent = Math.min(time / duration, 1);
-            percent = easing(percent);
+		const projectPreview = CONFIG.projects[index] && {
+			name: CONFIG.projects[index].name,
+			...CONFIG.projects[index].preview
+		};
 
-            window.scrollTo(0, startingY + diff * percent);
+		printProjectPreview(projectPreview);
 
-            if (time < duration) {
-                window.requestAnimationFrame(step)
-            }
-        })
-    }
+		PREVIEW_CLOSE_BUTTON.addEventListener('click', function () {
+			MAIN_CONTAINER.classList.toggle('hidden');
+			PROJECT_PAGE.classList.toggle('visible');
+		});
+	}
 
-    const MENU_LINKS = [
-        {node: document.getElementById('salary-link'), navigateToID: '#salary-section'},
-        {node: document.getElementById('coach-link'), navigateToID: '#coach-section'},
-        {node: document.getElementById('faq-link'), navigateToID: '#faq-section'},
-        {node: document.getElementById('process-link'), navigateToID: '#education-section'},
-        {node: document.getElementById('enroll-link'), navigateToID: '#enroll-section'},
-    ];
+	/**
+	 *
+	 * Working with SCROLLING
+	 *
+	 * */
 
-    MENU_LINKS.forEach(link => {
-        link.node.addEventListener('click', function () {
-            doScrolling(link.navigateToID, SCROLLING_TIME)
-        });
-    });
+	const MENU_LINKS = [
+		{node: document.getElementById('salary-link'), navigateToID: '#salary-section'},
+		{node: document.getElementById('salary-link-mobile'), navigateToID: '#salary-section'},
+		{node: document.getElementById('coach-link'), navigateToID: '#coach-section'},
+		{node: document.getElementById('coach-link-mobile'), navigateToID: '#coach-section'},
+		{node: document.getElementById('faq-link'), navigateToID: '#faq-section'},
+		//{node: document.getElementById('faq-link-mobile'), navigateToID: '#faq-section'},
+		{node: document.getElementById('process-link'), navigateToID: '#education-section'},
+		{node: document.getElementById('process-link-mobile'), navigateToID: '#education-section'},
+		{node: document.getElementById('enroll-link'), navigateToID: '#enroll-section'},
+		{node: document.getElementById('enroll-link-mobile'), navigateToID: '#enroll-section'},
+		{node: document.getElementById('enroll1-link'), navigateToID: '#enroll-section'},
+		{node: document.getElementById('enroll2-link'), navigateToID: '#enroll-section'},
+		{node: document.getElementById('enroll3-link'), navigateToID: '#enroll-section'},
+		{node: document.getElementById('enroll4-link'), navigateToID: '#enroll-section'},
+		{node: document.getElementById('enroll5-link'), navigateToID: '#enroll-section'},
+	];
 
-    /* CallBack Forms sending  */
+	function doScrolling(element, duration) {
+		let startingY = window.pageYOffset;
+		let elementY = window.pageYOffset + document.querySelector(element).getBoundingClientRect().top - (isMobile ? 300 : 60);
+		let targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY;
+		let diff = targetY - startingY + 5;
+		let easing = function (t) {
+			return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+		};
+		let start;
 
-    $("#enroll-form").submit(function(e) {
-        let ths = $(this);
-        e.preventDefault;
-        $.ajax({
-            type: 'POST', url: 'mail.php', data: $(this).serialize()
-        }).done(function() {
-            alert('Спасибо за заявку!');
-            setTimeout(function() {
-                ths.trigger("reset");}, 1000);
-        });
-        return false;
-    });
+		if (!diff) return;
 
-    /* Sliders init */
+		window.requestAnimationFrame(function step(timestamp) {
+			if (!start) start = timestamp;
+			let time = timestamp - start;
+			let percent = Math.min(time / duration, 1);
+			percent = easing(percent);
 
-    // let SLIDES_TO_SHOW = 5;
-    // if(windowWidth < 768) SLIDES_TO_SHOW = 2;
-    //
-    // $('.slider-1').slick({
-    //     infinite: true,
-    //     arrows:true,
-    //     slidesToShow: SLIDES_TO_SHOW,
-    //     autoplay:true,
-    //     autoplaySpeed:2000
-    // });
+			window.scrollTo(0, startingY + diff * percent);
+
+			if (time < duration) {
+				window.requestAnimationFrame(step)
+			}
+		})
+	}
+
+	MENU_LINKS.forEach(link => {
+		link.node.addEventListener('click', function () {
+			doScrolling(link.navigateToID, CONFIG.scrollingTime);
+		});
+	});
+
+	/**
+	 *
+	 * Slider
+	 *
+	 * */
+
+	function printReviews(reviews) {
+		const node = document.getElementById('review-slider');
+
+		reviews.forEach(function (review, key) {
+			const imagePath = './assets/images/' + review.avatar;
+
+			node.innerHTML += `
+				<div class="item">
+					<p class="text">${review.text}</p>
+					<img src="${imagePath}" class="avatar"/>
+					<p class="name">${review.authorName}</p>
+					<p class="date">${review.date}</p>
+				</div>
+				`;
+		});
+	}
+
+	printProjects(CONFIG.projects);
+	printEducationPoints(CONFIG.educationPoints);
+	printReviews(CONFIG.reviews);
+
+	$('.slider-1').slick({
+		infinite: true,
+		arrows: true,
+		slidesToShow: CONFIG.sliderSettings.slidesToShow,
+		autoplay: CONFIG.sliderSettings.autoPlay,
+		autoplaySpeed: CONFIG.sliderSettings.autoPlaySpeed
+	});
+
+	/**
+	 *
+	 * CallBack from Request form sending
+	 *
+	 * */
+
+	$('#enroll-form').submit(function (e) {
+		let context = $(this);
+		e.preventDefault;
+
+		$.ajax({
+			type: 'POST', url: 'mail.php', data: $(this).serialize()
+		}).done(function () {
+			alert('Спасибо за заявку!');
+			setTimeout(function () {
+				context.trigger('reset');
+			}, 1000);
+		});
+
+		return false;
+	});
 })();
