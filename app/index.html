@@ -10,27 +10,518 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
-    <link rel="stylesheet" href="css/libs.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
 </head>
 <body>
 
-<!--
-<form id="join-form" class="form">
-    <input id="test"
-           class="test"
-           placeholder="Ваш email или номер телефона"
-           name="info"
-    />
-    <label class="submit-btn">
-        <button id="submit-bottom" type="submit">Записаться</button>
-    </label>
-</form>
--->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="js/libs.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="js/index.js"></script>
+<div class="container" id="main-container">
+    <header class="desktop">
+        <a class="logo" href="#">
+            iOS Boss
+        </a>
+
+        <nav>
+            <ul class="menu">
+                <li class="menu-item" id="salary-link">Средняя зарплата</li>
+                <li class="menu-item" id="coach-link">Преподователь</li>
+                <li class="menu-item" id="faq-link">Вопросы</li>
+                <li class="menu-item" id="process-link">Процесс обучения</li>
+                <li>
+                    <a id="enroll-link" class="primary-button">Записаться</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <header class="mobile">
+        <a class="logo" href="#">
+            iOS Boss
+        </a>
+
+        <input id="burger" type="checkbox"/>
+
+        <label for="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav>
+            <ul>
+                <li id="salary-link-mobile">Средняя зарплата</li>
+                <li id="coach-link-mobile">Преподователь</li>
+                <!--<li class="menu-item" id="faq-link-mobile">Вопросы</li>-->
+                <li id="process-link-mobile">Процесс обучения</li>
+                <li class="button-item">
+                    <a id="enroll-link-mobile" class="primary-button">Записаться</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="top-section">
+        <h2>Разработка под iOS</h2>
+
+        <div class="flex-wrapper">
+            <div>
+                <h1>Разработка под iOS</h1>
+
+                <p class="description">
+                    Привет, меня зовут Денис и я научу вас писать приложения с нуля до стажировки в крупных компаниях
+                </p>
+
+                <p class="text">
+                    Осталось: <span class="blue-text">7 мест</span>
+
+                    <a class="primary-button limited-width"  id="enroll1-link">
+                        Записаться на курс
+                    </a>
+                </p>
+            </div>
+
+            <img src="images/laptop.png" alt="Laptop image"/>
+        </div>
+
+        <div class="info">
+            <div class="info-box">
+                <p class="title">Кому подойдет мой курс</p>
+                <p class="description">Всем, кто заинтересован и старателен и кого не устраивает текущая зарплата, а
+                    кодить можно научить любого, если грамотно подается материал и человек прилагает усилия.</p>
+            </div>
+            <div class="info-box">
+                <p class="title">С нуля до стажировки</p>
+                <p class="description">Всем, кто заинтересован и старателен и кого не устраивает текущая зарплата, а
+                    кодить можно научить любого, если грамотно подается материал и человек прилагает усилия.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="salary-section">
+        <h2>140 000 ₽</h2>
+
+        <div class="flex-wrapper">
+            <div class="left-side">
+                <h1>140 000 ₽</h1>
+
+                <p class="description">
+                    Столько в среднем зарабатывает <br>
+                    iOS разрабочик по данным <span class="red-text">HeadHunter</span>
+                </p>
+            </div>
+
+            <img src="images/salary.png" alt="Salary image"/>
+        </div>
+
+        <div class="tab-set">
+            <input id="radio1" type="radio" name="tab-set" aria-controls="tab-content1" checked>
+            <label for="radio1">Что потребуется</label>
+
+            <input id="radio2" type="radio" name="tab-set" aria-controls="tab-content2">
+            <label for="radio2">Что будем использовать</label>
+
+            <input id="radio3" type="radio" name="tab-set" aria-controls="tab-content3">
+            <label for="radio3">Большой проект и знания</label>
+
+            <input id="radio4" type="radio" name="tab-set" aria-controls="tab-content4">
+            <label for="radio4">Трудоустройство и стажировка</label>
+
+            <div class="tab-panels">
+                <div id="tab-content1" class="tab-panel">
+                    <div class="tail"></div>
+                    <span class="tab-content">Для старта вам потребуется MacBook или iMac</span>
+                </div>
+                <div id="tab-content2" class="tab-panel">
+                    <div class="tail"></div>
+                    <span class="tab-content">Будем использовать MacBook или iMac</span>
+                </div>
+                <div id="tab-content3" class="tab-panel">
+                    <div class="tail"></div>
+                    <span class="tab-content">Большой проект и знания</span>
+                </div>
+                <div id="tab-content4" class="tab-panel">
+                    <div class="tail"></div>
+                    <span class="tab-content">Трудоустройство и стажировка</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="coach-section">
+        <h2>Денис Байдан</h2>
+
+        <div class="flex-wrapper">
+            <div class="left-side">
+                <h1>Денис Байдан</h1>
+
+                <img class="avatar-mobile mobile" src="images/avatar.png" alt="Avatar"/>
+
+                <p class="description">
+                    Всем, кто заинтересован и старателен и кого не устраивает текущая зарплата,
+                    а кодить можно научить любого, если грамотно подается материал и человек прилагает усилия.
+                </p>
+
+                <div class="achievements">
+                    <div class="achievement">Победа в VK Hackhaton 2018</div>
+                    <div class="achievement">Победа в VK Hackhaton 2018</div>
+                </div>
+            </div>
+
+            <img class="avatar" src="images/avatar.png" alt="Avatar"/>
+        </div>
+
+        <div id="projects">
+        </div>
+    </section>
+
+    <section id="program-section">
+        <h2>Программа курса</h2>
+
+        <div class="flex-wrapper">
+            <div>
+                <h1>Программа курса</h1>
+
+                <p class="description">
+                    Главный посыл, что сможете после работы сразу уйти на стажировку и будет достаточное портфолио и
+                    количество знаний для трудоустройства.
+                </p>
+
+                <p class="text">
+                    Осталось: <span class="blue-text">7 мест</span>
+
+                    <a class="primary-button limited-width" id="enroll5-link">
+                        Записаться на курс
+                    </a>
+                </p>
+            </div>
+
+            <img src="images/program.png" alt="Program image"/>
+        </div>
+
+        <div class="accordion-wrapper">
+
+            <div class="accordion">
+                <div class="accordion-header">Основы Swift</div>
+
+                <div class="content">
+                    <div class="left-side">
+                        <p class="time-label mobile">
+                            <i class="far fa-clock"></i>
+                            12 часов теории
+                        <br>
+                            36 часов практики
+                        </p>
+                        <p class="description">
+                            В первом блоке вы познакомитесь с языком программирования Swift с нуля.
+                            Начнём с азов: с работы с переменными, типами данных, условными конструкциями.
+                            Вы напишете свой первый Hello world и подготовитесь к следующим блокам, посвященным задачам
+                            разработки приложений.
+                        </p>
+                        <div>
+                            <p class="left-item">Знакомство со Swift в Playground</p>
+                            <p class="left-item">Переменные, константы, типы данных</p>
+                            <p class="left-item">Преобразование типов. Условные конструкции</p>
+                            <p class="left-item">Коллекции: массив, словарь. Обход по коллекциям на примере for-in</p>
+                        </div>
+                    </div>
+
+                    <div class="right-side">
+                        <p class="time-label desktop">
+                            <i class="far fa-clock"></i>
+                            12 часов теории
+                            36 часов практики
+                        </p>
+
+                        <p class="section-title">Навыки, которые вы получите</p>
+
+                        <div>
+                            <p class="right-item">Переменные в Swift</p>
+                            <p class="right-item">Переменные в Swift</p>
+                            <p class="right-item">Переменные в Swift</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion">
+                <div class="accordion-header">Кому подойдет мой курс</div>
+
+                <div class="content">
+                    <div class="left-side">
+                        <p class="description">
+                            В первом блоке вы познакомитесь с языком программирования Swift с нуля.
+                            Начнём с азов: с работы с переменными, типами данных, условными конструкциями.
+                            Вы напишете свой первый Hello world и подготовитесь к следующим блокам, посвященным задачам
+                            разработки приложений.
+                        </p>
+                        <div>
+                            <p class="left-item">Знакомство со Swift в Playground</p>
+                            <p class="left-item">Переменные, константы, типы данных</p>
+                            <p class="left-item">Преобразование типов. Условные конструкции</p>
+                            <p class="left-item">Коллекции: массив, словарь. Обход по коллекциям на примере for-in</p>
+                        </div>
+                    </div>
+
+                    <div class="right-side">
+                        <p class="time-label">
+                            <i class="far fa-clock"></i>
+                            12 часов теории
+                            36 часов практики
+                        </p>
+
+                        <p class="section-title">Навыки, которые вы получите</p>
+
+                        <div>
+                            <p class="right-item">Переменные в Swift</p>
+                            <p class="right-item">Переменные в Swift</p>
+                            <p class="right-item">Переменные в Swift</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion">
+                <div class="accordion-header">Кому подойдет мой курс</div>
+
+                <div class="content">
+                    <div class="left-side">
+                        <p class="description">
+                            В первом блоке вы познакомитесь с языком программирования Swift с нуля.
+                            Начнём с азов: с работы с переменными, типами данных, условными конструкциями.
+                            Вы напишете свой первый Hello world и подготовитесь к следующим блокам, посвященным задачам
+                            разработки приложений.
+                        </p>
+                        <div>
+                            <p class="left-item">Знакомство со Swift в Playground</p>
+                            <p class="left-item">Переменные, константы, типы данных</p>
+                            <p class="left-item">Преобразование типов. Условные конструкции</p>
+                            <p class="left-item">Коллекции: массив, словарь. Обход по коллекциям на примере for-in</p>
+                        </div>
+                    </div>
+
+                    <div class="right-side">
+                        <p class="time-label">
+                            <i class="far fa-clock"></i>
+                            12 часов теории
+                            36 часов практики
+                        </p>
+
+                        <p class="section-title">Навыки, которые вы получите</p>
+
+                        <div>
+                            <p class="right-item">Переменные в Swift</p>
+                            <p class="right-item">Переменные в Swift</p>
+                            <p class="right-item">Переменные в Swift</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+				const WINDOW_WIDTH_LOCAL = window.innerWidth;
+				const isMobileScreen = WINDOW_WIDTH_LOCAL <= 768;
+				let accordions = document.getElementsByClassName("accordion-header");
+
+				const ACCORDION_HEIGHT = isMobileScreen ? 74: 96;
+				const OFFSET = 50;
+
+				for (let index = 0; index < accordions.length; index++) {
+					accordions[index].addEventListener('click', function () {
+						this.parentNode.classList.toggle('active');
+
+						toggleAccordion(accordions[index]);
+
+						closeInactiveAccordions(index, accordions)
+					});
+				}
+
+				function closeInactiveAccordions(index, collection) {
+					for (let i = 0; i < collection.length; i++) {
+
+						const isActive = collection[i].parentNode.classList.contains('active');
+
+						if (index !== i && isActive) {
+							collection[i].parentNode.classList.toggle('active');
+							toggleAccordion(collection[i]);
+						}
+					}
+				}
+
+				function toggleAccordion(node) {
+					let content = node.nextElementSibling;
+					let parent = node.parentNode;
+
+					if (parent.offsetHeight !== ACCORDION_HEIGHT) {
+						parent.style.height = ACCORDION_HEIGHT + 'px';
+						content.style.maxHeight = null;
+					} else {
+						parent.style.height = ACCORDION_HEIGHT + content.scrollHeight + OFFSET + 'px';
+						content.style.maxHeight = content.scrollHeight + 'px';
+					}
+				}
+            </script>
+
+        </div>
+    </section>
+
+    <section id="faq-section">
+        <h2>FAQ</h2>
+        <h1>FAQ</h1>
+
+        <div class="tab-set">
+
+            <input id="radio11" type="radio" name="tab-set1" aria-controls="tab-content11" checked>
+            <label for="radio11">Что потребуется</label>
+
+            <input id="radio12" type="radio" name="tab-set1" aria-controls="tab-content22">
+            <label for="radio12">Что будем использовать</label>
+
+            <input id="radio13" type="radio" name="tab-set1" aria-controls="tab-content33">
+            <label for="radio13">Большой проект и знания</label>
+
+            <input id="radio14" type="radio" name="tab-set1" aria-controls="tab-content44">
+            <label for="radio14">Трудоустройство и стажировка</label>
+
+            <div class="tab-panels">
+                <div id="tab-content11" class="tab-panel">
+                    <div class="tail"></div>
+                    <span class="tab-content">Для старта вам потребуется MacBook или iMac</span>
+                </div>
+                <div id="tab-content22" class="tab-panel">
+                    <div class="tail"></div>
+                    <span class="tab-content">Будем использовать MacBook или iMac</span>
+                </div>
+                <div id="tab-content33" class="tab-panel">
+                    <div class="tail"></div>
+                    <span class="tab-content">Большой проект и знания</span>
+                </div>
+                <div id="tab-content44" class="tab-panel">
+                    <div class="tail"></div>
+                    <span class="tab-content">Трудоустройство и стажировка</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education-section">
+        <h2>Как проходит обучение</h2>
+        <h1>Как проходит обучение</h1>
+
+        <div class="education-points" id="education-points"></div>
+    </section>
+
+    <section id="price-section">
+        <h2>Стоимость обучения</h2>
+        <h1>Стоимость обучения</h1>
+
+        <div class="price-cards">
+            <div class="card">
+                <div class="body">
+                    <p class="title">Оплата частями</p>
+                    <p class="description">
+                        Вы можете оплачивать обучение раз в месяц, но лишаетесь скидки в 30%
+                    </p>
+                    <p class="primary-price">6 890 ₽ в месяц</p>
+                    <p class="secondary-price">18 480 ₽ за все время </p>
+
+                    <a class="secondary-button" id="enroll2-link">Записаться на курс</a>
+                </div>
+            </div>
+            <div class="card card_big-type">
+                <div class="header">Дешевле на 30%</div>
+                <div class="body">
+                    <p class="title">Оплата сразу</p>
+                    <p class="description">
+                        За счет единоразовой оплаты за обучения вы экономите 30%
+                    </p>
+                    <p class="primary-price">4 890 ₽ в месяц</p>
+                    <p class="secondary-price">12 480 ₽ за все время</p>
+
+                    <a class="primary-button" id="enroll3-link">Записаться на курс</a>
+                </div>
+            </div>
+            <div class="card card_big-type">
+                <div class="header">Аренда оборудования</div>
+                <div class="body">
+                    <p class="title">MacBook Air</p>
+                    <p class="description">
+                        Наши партнёры предоставляют услуги аренды, если у вас нет необходимого оборудования
+                    </p>
+                    <p class="price">от 1 450 ₽ </p>
+                    <a class="secondary-button" id="enroll4-link">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="review-section">
+        <h2>Отзывы учеников</h2>
+        <h1>Отзывы учеников</h1>
+
+        <div class="slider slider-1" id="review-slider"></div>
+    </section>
+
+    <section id="enroll-section">
+        <h2>Записаться на курс</h2>
+        <h1 class="mobile">Записаться на курс</h1>
+
+        <div class="flex-wrapper">
+            <div>
+                <h1>Записаться на курс</h1>
+
+                <div class="form-wrapper">
+                    <p>Самый эффективный способ что-то сделать – делать это.</p>
+                    <form id="enroll-form">
+                        <input id="test"
+                               class="test"
+                               placeholder="Ваш email или номер телефона"
+                               name="info"
+                               autofocus
+                        />
+                        <button class="primary-button" type="submit">Записаться</button>
+                    </form>
+                </div>
+            </div>
+
+            <img src="images/enroll.png" alt="Enroll image"/>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <p class="logo">iOS Boss</p>
+            <p class="description">Онлайн курс по разработке</p>
+        </div>
+
+        <div class="icons">
+            <a href="https://telegram.org/" target="_blank">
+                <img src="images/icons/teleg.png" class="icon">
+            </a>
+            <a href="https://facebook.com/" target="_blank">
+                <img src="images/icons/fb.png" class="icon">
+            </a>
+            <a href="https://vk.com/" target="_blank">
+                <img src="images/icons/vk.png" class="icon">
+            </a>
+            <a href="https://instagram.com/" target="_blank">
+                <img src="images/icons/inst.png" class="icon">
+            </a>
+            <a href="#" target="_blank">
+                <img src="images/icons/contact.png" class="icon">
+            </a>
+        </div>
+    </footer>
+</div>
+
+<div id="project-page" class="project-page"></div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
+
+<!--
+    TODO:
+        1. Responsive
+        2. Content
+-->

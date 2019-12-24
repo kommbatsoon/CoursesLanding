@@ -1,16 +1,8 @@
 @import 'mixins';
 @import 'variables';
 
-html {
-  font-size: $font-size-basic;
-}
-
 body {
   @include normalizeFont();
-}
-
-div, span {
-  font-family: Roboto, sans-serif;
 }
 
 h1,
@@ -18,17 +10,32 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  @include normalizeFont();
-  color: $color-black-primary;
-  margin: 0 0;
+h6,
+p {
+  margin: 0;
   padding: 0;
 }
 
+h1 {
+  font-family: $font-semi-bold;
+  font-size: 64px;
+  line-height: 1.33;
+  color: $color-title;
+}
+h2 {
+  font-family: $font-semi-bold;
+  font-size: 92px;
+  line-height: 0.92;
+  color: $color-subtitle;
+}
+
 p {
-  @include normalizeFont();
-  color: $color-black-primary;
-  margin: 0;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+a {
+  text-decoration: none;
 }
 
 button, input, optgroup, select, textarea {

@@ -56,8 +56,8 @@ gulp.task('clean', function() {
 	return del.sync('dist'); // Удаляем папку dist перед сборкой
 });
 
-gulp.task('img', function() {
-	return gulp.src('app/img/**/*') // Берем все изображения из app
+gulp.task('images', function() {
+	return gulp.src('app/images/**/*') // Берем все изображения из app
 		.pipe(cache(imagemin({ // С кешированием
 		// .pipe(imagemin({ // Сжимаем изображения без кеширования
 			interlaced: true,
@@ -65,13 +65,13 @@ gulp.task('img', function() {
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))/**/)
-		.pipe(gulp.dest('dist/img')); // Выгружаем на прод
+		.pipe(gulp.dest('dist/images')); // Выгружаем на прод
 });
 
-gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
+gulp.task('build', ['clean', 'images', 'sass', 'scripts'], function() {
 
     let buildCss = gulp.src([ // Переносим библиотеки в прод
-		'app/css/style.css',
+		'app/css/main.css',
 		'app/css/libs.min.css'
 		])
 	.pipe(gulp.dest('dist/css'));
